@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+ @license
+ Copyright 2019 Google LLC. All Rights Reserved.
+ SPDX-License-Identifier: Apache-2.0
+-->
+<html>
+  <head>
+    <title>React</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <link rel="stylesheet" type="text/css" href="./index.css" />
+    <script type="module" src="./index.ts"></script>
+  </head>
+  <body>
+    <!-- <div id="floating-panel">
+      <input id="latlng" type="text" value="40.714224,-73.961452" />
+      <input id="submit" type="button" value="Reverse Geocode" />
+      <button id="hehe">Click</button>
+      <button id="animation">Animation</button>
+
+    </div>
+    <div id="map"></div> -->
+    <div class="wrapper">
+      <div class="header">
+          <img src="./DOHA.jpg" style="height: 7vh; width: 7vw; padding: 1vh;" onclick="alert('SOS')" />
+          <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+          </label>
+      </div>
+      <div id="map"></div>
+      <div id="pano"></div>
+      <div class="controlButtons">
+          <img src="./Alish.jpg" style="height: 10vh; width: 10vw; padding: 1vh;" onclick="alert('Тильт даун')" />
+          <img src="./Bekzh.jpg" style="height: 10vh; width: 10vw; padding: 1vh;" onclick="alert('Тильт ап')" />
+      </div>
+      <div class="infoDiv">
+          <img src="./assets/navigation.png"
+              style="height: 7vh; width: 18vw; padding: 1vh; position: relative; top: 14vh; left: 2vh;"
+              id="showInfoButton" />
+          <div id="infoWindow">
+              <p style="width: auto;">Latitude:</p>
+              <input size='' style='width:100%;margin:-3px;border:2px inset #eee' value="" id="latitude" />
+              <br /><br />
+              <p style="width: auto;">Longitute:</p>
+              <input size='' style='width:100%;margin:-3px;border:2px inset #eee' value="" id="longitude" />
+              <div id="goHereButton" style="position:relative; top: 1vh;">Go here!</div>
+          </div>
+      </div>
+      <div class="footer">
+          <button style="flex: 1;" onclick="alert('Карта')"><img src="./Akma.jpg"
+                  style="height: 7vh; width: 7vw; padding: 1vh;" /></button>
+          <button style="flex: 1;" id="knopka"><img src="./DOHA.jpg"
+                  style="height: 7vh; width: 7vw; padding: 1vh;" /></button>
+      </div>   
+  </div>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp4k8fYfRrpJAEMgknSQmLPXTezcbVIWc&callback=initMap&v=beta"
+      defer
+    ></script>
+  </body>
+</html>
