@@ -30,14 +30,18 @@ body {
 }
 
 .controlButtons {
-    padding: 1vh;
+    padding: 2vh;
     justify-self: center;
     align-self: flex-end;
     display: flex;
     flex-direction: column;
-    z-index: 2;
-    position: relative;
-    top: 10vh;
+    justify-content: space-between;
+    z-index: 10;
+    position: fixed;
+    top: 40vh;
+    right: 2vw;
+    width: 12vw;
+    height: 14vh;
 }
 
 .smallButtons {
@@ -51,27 +55,25 @@ body {
 }
 
 #infoWindow {
+    position: fixed;
     background-color: white;
     opacity: 0.6;
     cursor: pointer;
     height: 20vh;
-    padding: 1vh;
-    padding-right: 2vh;
-    width: 20vw;
+    width: 25vw;
     display: none;
-    z-index: 2;
-    position: relative;
-    top: 1vh;
+    z-index: 8;
+    bottom: 20vh;
+    left: 20vw;
 }
 
 .footer {
     padding: 0;
     margin: 0;
-    background-color: white;
-    height: 10vh;
+    height: 8vh;
     width: 100%;
     z-index: 2;
-    opacity: 0.6;
+    /* opacity: 0.6; */
     display: flex;
     justify-content: space-between;
 }
@@ -108,66 +110,214 @@ a {
     display: none;
 }
 
-/* The switch - the box around the slider */
-.switch {
-    position: relative;
-    display: inline-block;
-    right: 1vh;
-    margin: 3vh;
-    width: 3vw;
-    height: 34px;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
+#floating-panel {
     position: absolute;
+    top: 10px;
+    left: 25%;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+    text-align: center;
+    font-family: "Roboto", "sans-serif";
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+#floating-panel {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    margin-left: -180px;
+    width: 350px;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+}
+
+#latlng {
+    width: 225px;
+}
+
+/* .ui-button {
+    background-color: #fff;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    padding: 0 0.5em;
+    font: 400 18px Roboto, Arial, sans-serif;
+    overflow: hidden;
+    height: 40px;
     cursor: pointer;
+}
+
+.ui-button:hover {
+    background: rgb(235, 235, 235);
+} */
+.snizu1 {
+    width: 60%;
+    height: 60%;
+    z-index: 3;
+    background: url('https://api.iconify.design/akar-icons/check-in.svg?color=%232a6fbe&width=50&height=50') no-repeat center center / contain;
+}
+
+.snizu2 {
+    width: 60%;
+    height: 60%;
+    z-index: 3;
+    background: url('https://api.iconify.design/icon-park-outline/panorama-horizontal.svg?color=%23a6b5c6&width=40&height=26') no-repeat center center / contain;
+}
+
+button {
+    border: none;
+}
+
+.circle {
+    display: inline-block;
+    width: 19vw;
+    height: 8vh;
+    z-index: 7;
+    background-color: aliceblue;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    margin: 2vh;
+    left: 1vw;
+    bottom: 10vh;
+    border: 1px solid #A6B5C6;
+}
+
+.circle2 {
+    display: inline-block;
+    height: 40%;
+    z-index: 7;
+    background-color: aliceblue;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #A6B5C6;
+}
+
+.circle3 {
+    background-color: black;
+    display: inline-block;
+    width: 15vw;
+    height: 7vh;
+    z-index: 7;
+    background-color: aliceblue;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #FD5151;
+    margin-left: 1vh;
+    margin-top: 1vh;
+}
+
+.up {
+    height: 70%;
+    width: 70%;
+    z-index: 8;
+    display: inline-block;
+    background: url('https://api.iconify.design/akar-icons/plus.svg?color=%23a6b5c6&width=20&height=10') no-repeat center center / contain;
+}
+
+.down {
+    height: 70%;
+    width: 70%;
+    z-index: 8;
+    display: inline-block;
+    background: url('https://api.iconify.design/akar-icons/minus.svg?color=%23a6b5c6&width=20&height=10') no-repeat center center / contain;
+}
+
+.sos {
+    height: 70%;
+    width: 70%;
+    z-index: 8;
+    display: inline-block;
+    background: url('https://api.iconify.design/ic/twotone-sos.svg?color=%23fd5151&width=50&height=50') no-repeat center center / contain;
+}
+
+.navigation {
+    height: 70%;
+    width: 70%;
+    z-index: 8;
+    display: inline-block;
+    background: url('https://api.iconify.design/akar-icons/cursor.svg?color=%23a6b5c6&width=30&height=30') no-repeat center center / contain;
+}
+
+.switch-button {
+    background: rgba(255, 255, 255, 0.56);
+    border-radius: 30px;
+    overflow: hidden;
+    width: 140px;
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: #0e1720;
+    position: relative;
+    padding-right: 120px;
+    position: relative;
+    margin-right: 2vh;
+}
+
+.switch-button:before {
+    content: "Satellite";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.switch-button-checkbox {
+    cursor: pointer;
+    position: absolute;
     top: 0;
     left: 0;
-    right: 0;
     bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 2;
 }
 
-.slider:before {
-    position: absolute;
+.switch-button-checkbox:checked+.switch-button-label:before {
+    transform: translateX(120px);
+    transition: transform 300ms linear;
+}
+
+.switch-button-checkbox+.switch-button-label {
+    position: relative;
+    padding: 15px 0;
+    display: block;
+    user-select: none;
+    pointer-events: none;
+}
+
+.switch-button-checkbox+.switch-button-label:before {
     content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+    background: #CECBDD;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 30px;
+    transform: translateX(0);
+    transition: transform 300ms;
 }
 
-input:checked+.slider {
-    background-color: #2196F3;
-}
-
-input:focus+.slider {
-    box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked+.slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
+.switch-button-checkbox+.switch-button-label .switch-button-label-span {
+    position: relative;
 }

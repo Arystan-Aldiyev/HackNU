@@ -28,14 +28,15 @@ let mapOptions = {
 
 function initMap(): void {
   mapVisualizer.initialize()
-  const knopka =  document.getElementById("knopka")
+  const knopka = document.getElementById("knopka")
   knopka.addEventListener("click", turnOn3D)
 }
 
-function turnOn3D(){
+function turnOn3D() {
   console.log(11)
-  
-  document.body.innerHTML = `<div id="floating-panel">
+
+  document.body.innerHTML = `
+  <div id="floating-panel">
       <input id="latlng" type="text" value="40.714224,-73.961452" />
       <input id="submit" type="button" value="Reverse Geocode" />
       <button id="hehe">Click</button>
@@ -46,7 +47,7 @@ function turnOn3D(){
   `;
   main3d()
 }
-function main3d(){
+function main3d() {
   const elevator = new google.maps.ElevationService();
   const geocoder = new google.maps.Geocoder();
   const infowindow = new google.maps.InfoWindow();
@@ -140,9 +141,9 @@ function geocodeLatLng(
     .geocode({ location: latlng })
     .then((response) => {
       if (response.results[0]) {
-          map.setZoom(18);
-          map.setCenter(latlng);
-          map.setTilt(45);
+        map.setZoom(18);
+        map.setCenter(latlng);
+        map.setTilt(45);
         mapOptions.zoom = 18;
         mapOptions.center = latlng;
         mapOptions.tilt = 45
@@ -243,15 +244,15 @@ function initWebglOverlayView(map: google.maps.Map): void {
 }
 
 
-function displayLocationElevation(location, elevator, infowindow,  map: google.maps.Map,) {
+function displayLocationElevation(location, elevator, infowindow, map: google.maps.Map,) {
   elevator
     .getElevationForLocations({
       locations: [location],
     })
     .then(({ results }) => {
       infowindow.setPosition(location);
-    
-      if (typeof(results[0].elevation) !== "undefined") {
+
+      if (typeof (results[0].elevation) !== "undefined") {
         map.setZoom(18);
         map.setCenter(location);
         map.setTilt(45);
@@ -261,7 +262,7 @@ function displayLocationElevation(location, elevator, infowindow,  map: google.m
         infowindow.setContent(
           "The elevation at this point <br>is " +
           results[0].elevation.toFixed(2) +
-            "meters. Lat: " + location.lat() + "Lng: " + location.lng()
+          "meters. Lat: " + location.lat() + "Lng: " + location.lng()
         );
         document.getElementById("latlng").value = location.lat() + ", " + location.lng()
       } else {

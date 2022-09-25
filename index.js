@@ -1,6 +1,4 @@
 export function initialize() {
-    const latInputField = document.getElementById("latitude");
-    const lngInputField = document.getElementById("longitude");
     let fenway = { lat: 40.7484892471959, lng: -73.9855785714668 };
     const elevator = new google.maps.ElevationService();
     const infowindow = new google.maps.InfoWindow({});
@@ -9,28 +7,28 @@ export function initialize() {
         center: fenway,
         zoom: 14,
     });
-    // if (navigator.geolocation) {
-    //     navigator.geolocation.getCurrentPosition(
-    //         (position) => {
-    //             const pos = {
-    //                 lat: position.coords.latitude,
-    //                 lng: position.coords.longitude,
-    //             };
-    //             infowindow.setPosition(pos);
-    //             infowindow.setContent("Location found.");
-    //             infowindow.open(map);
-    //             map.setCenter(pos);
-    //             latInputField.value = pos.lat
-    //             lngInputField.value = pos.lng
-    //         },
-    //         () => {
-    //             handleLocationError(true, infowindow, map.getCenter());
-    //         }
-    //     );
-    // } else {
-    //     // Browser doesn't support Geolocation
-    //     handleLocationError(false, infowindow, map.getCenter());
-    // }
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude,
+                };
+                infowindow.setPosition(pos);
+                infowindow.setContent("You are here!");
+                infowindow.open(map);
+                map.setCenter(pos);
+                latInputField.value = pos.lat
+                lngInputField.value = pos.lng
+            },
+            () => {
+                handleLocationError(true, infowindow, map.getCenter());
+            }
+        );
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infowindow, map.getCenter());
+    }
     // infowindow.open(map);
     // Add a listener for the click event. Display the elevation for the LatLng of
     // the click inside the infowindow.
@@ -74,10 +72,8 @@ export function initialize() {
     );
     map.setStreetView(panorama);
     const showInfoButton = document.getElementById("showInfoButton")
-    showInfoButton.addEventListener("click", onoff)
+    showInfoButton.addEventListener("click", () => myLocation(infowindow, map))
 
-    const goHereButton = document.getElementById("goHereButton")
-    goHereButton.addEventListener("click", () => changeCoords(geocoder, map, infowindow))
     // const switchButton = document.getElementById("switch");
     // switchButton.addEventListener("click", (event) => {
     //     let cur = event.target.firstChild.data
@@ -185,6 +181,31 @@ export function displayLocationElevation(location, elevator, infowindow) {
         );
 }
 
+export function myLocation(infowindow, map) {
+    console.log("jafjads")
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude,
+                };
+                infowindow.setPosition(pos);
+                infowindow.setContent("You are here!");
+                infowindow.open(map);
+                map.setCenter(pos);
+                latInputField.value = pos.lat
+                lngInputField.value = pos.lng
+            },
+            () => {
+                handleLocationError(true, infowindow, map.getCenter());
+            }
+        );
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infowindow, map.getCenter());
+    }
+}
 // function handleDrop(e) {
 //     e.stopPropagation(); e.preventDefault();
 //     var f = e.dataTransfer.files[0];
