@@ -33,15 +33,13 @@ function initMap(): void {
 }
 
 function turnOn3D() {
-  console.log(11)
-
   document.body.innerHTML = `
   <div id="floating-panel">
       <input id="latlng" type="text" value="40.714224,-73.961452" />
       <input id="submit" type="button" value="Reverse Geocode" />
-      <button id="hehe">Click</button>
       <button id="animation">Animation</button>
-
+      
+      <button id="hehe" onclick="window.location.reload()">Go back</button>
     </div>
     <div id="map"></div>
   `;
@@ -63,7 +61,6 @@ function main3d() {
     ["Tilt Down", "tilt", 20, google.maps.ControlPosition.TOP_CENTER],
     ["Tilt Up", "tilt", -20, google.maps.ControlPosition.BOTTOM_CENTER],
   ];
-
   (document.getElementById("submit") as HTMLElement).addEventListener(
     "click",
     () => {

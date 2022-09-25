@@ -18,8 +18,11 @@ export function initialize() {
                 infowindow.setContent("You are here!");
                 infowindow.open(map);
                 map.setCenter(pos);
-                latInputField.value = pos.lat
-                lngInputField.value = pos.lng
+                new google.maps.Marker({
+                    position: pos,
+                    map,
+                    title: "Hello World!",
+                });
             },
             () => {
                 handleLocationError(true, infowindow, map.getCenter());
@@ -29,6 +32,7 @@ export function initialize() {
         // Browser doesn't support Geolocation
         handleLocationError(false, infowindow, map.getCenter());
     }
+
     // infowindow.open(map);
     // Add a listener for the click event. Display the elevation for the LatLng of
     // the click inside the infowindow.
@@ -54,8 +58,6 @@ export function initialize() {
         } else {
             console.log("Тут крч Доха ")
         }
-        latInputField.value = event.latLng.lat();
-        lngInputField.value = event.latLng.lng();
         // document.getElementById("switch").click()
 
         displayLocationElevation(event.latLng, elevator, infowindow);
@@ -73,7 +75,14 @@ export function initialize() {
     map.setStreetView(panorama);
     const showInfoButton = document.getElementById("showInfoButton")
     showInfoButton.addEventListener("click", () => myLocation(infowindow, map))
-
+    const mapMode = document.getElementById("mapMode")
+    mapMode.addEventListener("change", () => {
+        if (mapMode.checked) {
+            map.setMapTypeId('satellite')
+        } else {
+            map.setMapTypeId('roadmap')
+        }
+    })
     // const switchButton = document.getElementById("switch");
     // switchButton.addEventListener("click", (event) => {
     //     let cur = event.target.firstChild.data
@@ -164,13 +173,9 @@ export function displayLocationElevation(location, elevator, infowindow) {
             if (results[0]) {
                 // Open the infowindow indicating the elevation at the clicked position.
                 infowindow.setContent(
-                    "Высота " +
+                    "Height there is " +
                     results[0].elevation +
-                    " метров щещен.\n" +
-                    " А lat = " +
-                    location.lat() +
-                    " а lng = " +
-                    location.lng()
+                    " meters.\n"
                 );
             } else {
                 infowindow.setContent("No results found");
@@ -205,6 +210,10 @@ export function myLocation(infowindow, map) {
         // Browser doesn't support Geolocation
         handleLocationError(false, infowindow, map.getCenter());
     }
+}
+
+export function initMapTypeControl(map) {
+
 }
 // function handleDrop(e) {
 //     e.stopPropagation(); e.preventDefault();

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency page</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="main2">
+        <div class="goBack" onclick="location.href='./index.html';"></div>
+        <div class="center">
+            <h2 class="helpYou">
+                We are here to help you
+            </h2>
+            <div class="guardIcon"></div>
+            <h2 class="someClass">Share your location through photo. We will sent it to 911</h2>
+            <br><br><br><br>
+            <button class="comeButton" onclick="document.getElementById('picUpload').click()">Add photo</button>
+            <input type="file" hidden id="picUpload" />
+        </div>
+    </div>
+</body>
+
+</html>

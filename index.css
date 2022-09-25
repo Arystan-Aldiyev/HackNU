@@ -321,3 +321,73 @@ button {
 .switch-button-checkbox+.switch-button-label .switch-button-label-span {
     position: relative;
 }
+
+.goBack {
+    height: 10%;
+    width: 20%;
+    background: url('https://api.iconify.design/uil/angle-left-b.svg?color=%2394b1d1&width=17.24&height=30') no-repeat center center / contain;
+    display: flex;
+    justify-self: flex-start;
+    align-self: flex-start;
+    display: inline;
+    position: fixed;
+}
+
+.main2 {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    background-color: #F5F5F5;
+}
+
+.center {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    height: 65%;
+    width: 100%;
+    display: inline;
+    text-align: center;
+    justify-content: center;
+
+}
+
+.helpYou {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 35px;
+    color: #2A6FBE;
+}
+
+.guardIcon {
+    height: 70%;
+    width: 70%;
+    z-index: 8;
+    display: inline-block;
+    background: url('https://api.iconify.design/arcticons/privatelocation.svg?color=%232a6fbe&width=261&height=261') no-repeat center center / contain;
+}
+
+.someClass {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #94B1D1;
+}
+
+.comeButton {
+    background: #2A6FBE;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    width: 70%;
+    height: 10%;
+    position: relative;
+    bottom: 6vh;
+}
