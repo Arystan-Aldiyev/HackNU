@@ -1,0 +1,9 @@
+README.md
+setup.cfg
+setup.py
+GPSPhoto/__init__.py
+GPSPhoto/gpsphoto.py
+gpsphoto.egg-info/PKG-INFO
+gpsphoto.egg-info/SOURCES.txt
+gpsphoto.egg-info/dependency_links.txt
+gpsphoto.egg-info/top_level.txt
